@@ -7,6 +7,7 @@ require("dotenv").config();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+const PORT = process.env.PORT || 3000;
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -55,6 +56,6 @@ app.post("/contact", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Server running on port 3000");
 });
